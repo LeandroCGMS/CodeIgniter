@@ -5,9 +5,9 @@ class Hoteis extends CI_model{
     private $dados_hoteis;
 
     //construtor
-    function __construc() {
-        echo "Mensagem dentro do método construct antes do construtor pai.";
+    function __construct() {
         parent::__construct();
+
         // dados dos hotéis
         $this->dados_hoteis = [
             [
@@ -38,15 +38,17 @@ class Hoteis extends CI_model{
     }
 
     public function imagensHoteis(){
-        echo "Dentro do método imagensHoteis()";
         // retorna as imagens dos hotéis
         $imagens = [];
-        //var_dump($this->dados_hoteis);
         foreach($this->dados_hoteis as $hotel){
             array_push($imagens, $hotel['imagem']);
         }
         return $imagens;
     }
+
+    public function dados_do_hotel($id){
+        // retorna os dados do hotel escolhido ($id)
+        return $this->dados_hoteis[$id];
+    }
 }
 
-?>

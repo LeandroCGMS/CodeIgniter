@@ -14,8 +14,8 @@ class Geral extends CI_Controller {
     // =========================================================================
     public function hotel($id){
         // dados do hotel
-        
-        $dados['hotel'] = $hoteis[$id];
+        $this->load->model('hoteis');
+        $dados['hotel'] = $this->hoteis->dados_do_hotel($id);
         $this->load->view('layout/cabecalho');
         $this->load->view('pagina_hotel', $dados);
         $this->load->view('layout/rodape');
